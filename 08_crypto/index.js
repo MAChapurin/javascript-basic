@@ -1,6 +1,6 @@
 function crypto(str) {
   const splitString = str.split('');
-  const center = splitString.length % 2 === 0 ? splitString.length / 2 : (splitString.length + 1) / 2;
+  const center = Math.ceil(splitString.length / 2);
   const left = splitString.splice(0,center).reverse().join('');
   return left + splitString.reverse().join('');
 }

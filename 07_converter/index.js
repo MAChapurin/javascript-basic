@@ -1,25 +1,26 @@
 function converter(sum, startCurrency = 'rub', finishCurrency = 'usd') {
-  if (!sum) return null;
 
   const currencyStore = {
-    usd: 70,
-    rub: 1,
-    eur: 80,
-    cny: 11,//юань
-    try: 5,//турецкая лира, ключевые слова в обьектах вроде можно
-    bin: 30,//беллорусский рубль
-    gbp: 102,//английский фунт
-    aed: 26, //дирхам ОАЭ
+    USD: 70,
+    RUB: 1,
+    EUR: 80,
+    CNY: 11,//юань
+    TRY: 5,//турецкая лира, ключевые слова в обьектах вроде можно
+    BIN: 30,//беллорусский рубль
+    GBP: 102,//английский фунт
+    AED: 26, //дирхам ОАЭ
   };
 
+  if (!sum || !currencyStore[finishCurrency.toUpperCase()] || !currencyStore[startCurrency.toUpperCase()] ) return null;
+
   function convertToRub(sum) {
-    return sum * currencyStore[startCurrency]
+    return sum * currencyStore[startCurrency.toUpperCase()]
   }
 
-  if (!currencyStore[finishCurrency]) return null;
-
-  return currencyStore[startCurrency] ? (convertToRub(sum) / currencyStore[finishCurrency]).toFixed(2) : null;
+  return (convertToRub(sum) / currencyStore[finishCurrency.toUpperCase()]).toFixed(2);
 }
 
 console.log(converter(10, 'usd', 'try'))
-console.log(converter())
+console.log(converter(10 , 'usd', 'eur'))
+console.log(converter(10 , 'AED', 'GBP'))
+console.log()
