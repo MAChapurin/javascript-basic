@@ -5,12 +5,21 @@ function isDate(arr) {
       const divider = el.match(regexp);
       if (divider) {
         const [day, month, year] = el.split(divider[0]);
-        const checkDay = Number(day) <= 31 && Number(day) >= 1;
-        const checkMonth = Number(month) <= 12 && Number(month) >= 1;
+        // const checkDay = Number(day) <= 31 && Number(day) >= 1;
+        // const checkMonth = Number(month) <= 12 && Number(month) >= 1;
+        const checkDayOrMonth =
+          (Number(day) <= 31 &&
+            Number(day) >= 1 &&
+            Number(month) <= 12 &&
+            Number(month) >= 1) ||
+          (Number(day) <= 12 &&
+            Number(day) >= 1 &&
+            Number(month) <= 31 &&
+            Number(month) >= 1);
         const checkYear =
           year.length === 4 && typeof (Number(year) === 'number');
         //Представим что валидные только четырехзначные числа
-        return checkDay && checkMonth && checkYear ? el : null;
+        return checkDayOrMonth && checkYear ? el : null;
       }
     })
     .filter((el) => el);
