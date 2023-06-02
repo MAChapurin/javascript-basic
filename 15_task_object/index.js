@@ -9,7 +9,7 @@ const ToDoList = {
     this.taskStore = this.taskStore.filter((task) => task.id !== id);
   },
   updateTask(prop, id, value) {
-    if (!['title', 'priority'].includes(prop)) return false;
+    // if (!['title', 'priority'].includes(prop)) return false;
     const newObj = {
       [prop]: value,
     };

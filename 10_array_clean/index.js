@@ -1,9 +1,7 @@
 function arrayOperation(arr, fn) {
   const result = [];
   for (const item of arr) {
-    if (fn(item)) {
-      continue;
-    } else {
+    if (!fn(item)) {
       result.push(item);
     }
   }

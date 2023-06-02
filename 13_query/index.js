@@ -1,7 +1,7 @@
 function createQueryParametrs(obj) {
   return Object.keys(obj)
     .reduce((acc, key) => {
-      return acc.concat([`${key}=${obj[key]}`.replace(/\s/g, '%20')]); //replace на случай наличия пробелов в каком либо параметре
+      return acc.concat([`${key}=${obj[key]}`]);
     }, [])
     .join('&');
 }
