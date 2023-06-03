@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 10px;
+}
+
+.container {
+  gap: 10px;
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.input {
+  width: 50px;
+}
